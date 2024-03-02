@@ -12,12 +12,16 @@ bool validateLogin(String email, String password) {
   return false;
 }
 
+
+
+
+
+
 void proceedLogin(BuildContext context) {
   Navigator.of(context).push(MaterialPageRoute(
-    builder: (context) => HomePage(),
-  ));
+        builder: (context) => HomePage(),
+      ));
 }
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -51,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(height: 30),
+
           TextField(
             controller: passwordController,
             decoration: InputDecoration(
@@ -61,17 +66,20 @@ class _LoginPageState extends State<LoginPage> {
           Container(height: 30),
           ElevatedButton(
               onPressed: () {
+                
                 if (validateLogin(
                     emailController.text, passwordController.text)) {
-                  print('Valid Credentials');
+                      print('Valid Credentials');
                   proceedLogin(context);
-                } else {
+                }
+                else {
                   print('Invalid Credentials');
                 }
               },
               child: Text('Login'))
         ],
       ),
+
     );
   }
 }
